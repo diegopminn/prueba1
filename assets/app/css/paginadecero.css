@@ -1,0 +1,86 @@
+
+    /*ESTILOS PARA LOS BOTONES DE LA NAV BAR*/
+body{
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+#menu a{
+    font-size: 20px;
+    font-weight: bold;
+}
+#menu button {
+    font-size: 20px;
+    font-weight: bold;
+}
+/*ESTILOS PARA EL SLIDER DE IMAGENES*/
+
+.carousel-inner{
+    max-height: 39rem;
+}
+
+/*ESTILOS PARA PANTALLA ANCHA*/
+
+@media (max-width: 1200px){
+    #local{
+        flex-wrap: wrap;
+        padding-top: 30px;
+    }
+    .wrapper{
+        width: 90%;
+        margin: auto;
+        padding-top: 50px;
+    }
+}
+
+/*ESTILOS PANTALLAS PEQUEÑAS*/
+
+@media (max-width: 768px){
+    #intro{
+        width: 90% !important;
+    }
+    .servicio-fila{
+        width: 100% !important;
+        text-align: center;
+    }
+}
+/*ESTILOS PARA PANTALLA MUY PEQUEÑAS*/
+
+@media (max-width: 576px){
+    .icono-wrap{
+        flex-wrap: wrap;
+        justify-content: center !important;
+    }
+}
+
+/*SECCION DE NUESTRO MAPA*/
+
+#local {
+    background: #f3f3f3;
+    padding-bottom: 300px;
+    display:flex;
+    justify-content: center;
+}
+.wrapper-local{
+    width: 50%;
+    margin-left: 100px;
+    padding-top:150px;
+}
+
+/*SECCION UBICADO EN LO QUE SEA*/
+
+#numeros_local div{
+    padding: 0 20px 0 0;
+    height: 48px;
+}
+
+#numeros_local div:not(:last-child){
+    border-right: 2px solid #3f3f3f;
+}
+#numeros_local div:not(:first-child){
+    padding-left: 20px;
+}
+#numeros_local p{
+    margin: 0;
+
+}
+

@@ -3,17 +3,36 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+
+
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+        {% block block_stylesheets %}
+            <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('bundles/app/css/paginadecero.css') }}" rel="stylesheet">
         {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+        {% block block_javascripts %}
+            <script src="{{ asset('bundles/app/js/bootstrap.bundle.min.js') }}"></script>
         {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
+
+        {% block footer %}
+            <footer>
+                <!-- Footer -->
+                <footer class="text-center text-lg-start bg-light text-muted">
+
+                    <!-- Copyright -->
+                    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                        © 2022 Copyright:
+                        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">diegopagina.com</a>
+                    </div>
+                    <!-- Copyright -->
+                </footer>
+                <!-- Footer -->
+            </footer>
+        {% endblock %}
     </body>
 </html>

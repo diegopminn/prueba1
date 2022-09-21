@@ -21,6 +21,7 @@ class luckyNumber2Controller extends AbstractController //basicamente cuando ext
         return new Response(
             '<html><body>Lucky number: '.$number.'</body></html>'
 
+
         );
     }
 }

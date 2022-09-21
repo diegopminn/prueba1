@@ -1,74 +1,283 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block title %}Hello ConferenceController!{% endblock %}
 {% block stylesheets %}
-    <style>
-                *{
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                    font-family: 'Poppins', sans-serif;
-                }
-                body{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    min-height: 100vh;
-                    background: #252839;
-                }
-                ul li{
-                    position: relative;
-                    list-style: none;
-                }
-                ul li a{
-                    position: relative;
-                    font-size: 4cm;
-                    text-decoration: none;
-                    line-height: 1em;
-                    letter-spacing: 2px;
-                    text-transform: uppercase;
-                    color: transparent;
-                    -webkit-text-stroke: 1px rgba(255,255,255,0.5);
-                }
-                ul li a::before{
-                    content: attr(data-text);
-                    position: absolute;
-                    color: var(--clr);
-                    width: 0;
-                    overflow: hidden;
-                    transition: 1s;
-                    border-right: 8px solid var(--clr);
-                    -webkit-text-stroke: 1px var(--clr);
-                }
-                ul li a:hover::before{
-                    width: 100%;
-                    filter: drop-shadow(0 0 25px var(--clr));
-                }
 
-    </style>
+<style>
+    /*ESTILOS PARA LOS BOTONES DE LA NAV BAR*/
+    body{
+        font-family: 'Montserrat', sans-serif;
+        overflow-x: hidden;
+    }
+    #menu a{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    #menu button {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    /*ESTILOS PARA EL SLIDER DE IMAGENES*/
+
+    .carousel-inner{
+        max-height: 45rem;
+    }
+
+    /*ESTILOS PARA PANTALLA ANCHA*/
+
+    @media (max-width: 1200px){
+        #local{
+            flex-wrap: wrap;
+            padding-top: 30px;
+        }
+        .wrapper{
+            width: 90%;
+            margin: auto;
+            padding-top: 50px;
+        }
+    }
+
+    /*ESTILOS PANTALLAS PEQUEÑAS*/
+
+    @media (max-width: 768px){
+        #intro{
+            width: 90% !important;
+        }
+        .servicio-fila{
+            width: 100% !important;
+            text-align: center;
+        }
+    }
+    /*ESTILOS PARA PANTALLA MUY PEQUEÑAS*/
+
+    @media (max-width: 576px){
+            .icono-wrap{
+                flex-wrap: wrap;
+                justify-content: center !important;
+            }
+    }
+
+    /*SECCION DE NUESTRO MAPA*/
+
+    #local {
+        background: #f3f3f3;
+        padding-bottom: 300px;
+        display:flex;
+        justify-content: center;
+    }
+    .wrapper-local{
+        width: 50%;
+        margin-left: 100px;
+        padding-top:150px;
+    }
+
+    /*SECCION UBICADO EN LO QUE SEA*/
+
+    #numeros_local div{
+        padding: 0 20px 0 0;
+        height: 48px;
+    }
+
+    #numeros_local div:not(:last-child){
+        border-right: 2px solid #3f3f3f;
+    }
+    #numeros_local div:not(:first-child){
+        padding-left: 20px;
+    }
+    #numeros_local p{
+        margin: 0;
+
+    }
+
+</style>
+
 {% endblock %}
-
 
 {% block body %}
 
-    <!--<h1>HOLA </h1> Esta es la variable retornada en el controler
-    <img src="/public/imagenes/z3wdizpl92g81.jpg"/>-->
-    <ul>
-        <li style ="--clr:#00ade1;">
-            <a href="/lucky/number" data-text="&nbsp;Inicio">&nbsp;Inicio&nbsp;</a>
-        </li>
-        <li style ="--clr:#ff6493;">
-            <a href="/redi" data-text="&nbsp;Perfil">&nbsp;Perfil&nbsp;</a>
-        </li>
-        <li style ="--clr:#ffdd1c;">
-            <a href="#" data-text="&nbsp;Servicios">&nbsp;Servicios&nbsp;</a>
-        </li>
-        <li style ="--clr:#00dc82;">
-            <a href="#" data-text="&nbsp;Equipo">&nbsp;Equipo&nbsp;</a>
-        </li>
-        <li style ="--clr:#dc00d4;">
-            <a href="#" data-text="&nbsp;Contacto">&nbsp;Contacto&nbsp;</a>
-        </li>
-    </ul>
+    <!--==============================
+     Encabezado
+    ==============================-->
+    <header class="container-fluid bg-secondary d-flex justify-content-center">
+        <p class="text-light mb-0 p-2 fs-5">Empezamos la prueba de la pagina desde 0</p>
+    </header>
+
+    <!--=======================================================
+        AQUI TENEMOS LOS BOTONES DE LA NAVBAR
+    -->
+    <nav class="navbar navbar-expand-lg bg-light p-3" id="menu">
+        <div class="container-fluid">
+            <!--===========================================================-->
+            <a class="navbar-brand" href="#">
+                <span class="text-primary fs-5 fw-light">Mi pagina</span>
+            </a>
+            <!--===========================================================-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!--===========================================================-->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">
+                            Inicio
+                        </a>
+                    </li>
+                    <!--===========================================================-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Equipo</a>
+                    </li>
+                    <!--===========================================================-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                    <!--===========================================================-->
+
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="email" placeholder="Correo Electronico" aria-label="Email">
+                    <button class="btn btn-primary btn-primary-outline-success" type="button">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!--=======================================================
+        SLIDER DE IMAGENES
+    -->
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3Q-2lg3AZVitrbH0r1QiOm55NLorruWhznTZjZGa6BFPguxt7FT69CHkGuHSWwscOxnunS8kAoSPzSIvQLxAAfCQ_SXagF4d5bnugvUx8DiCTdB8XH-LKV9SEsZClvRSS5ilU9MWW_pKLJnoh-8XgysoJintmHiMyr17i2Ai0PT03omb2s-7EnIen/s3840/Snow%20Moon%20Kayn.jpg" class="d-block w-100" alt="slide1">
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://images2.alphacoders.com/104/thumb-1920-1042906.jpg" class="d-block w-100" alt="slide2">
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://i.pinimg.com/originals/bc/5c/0a/bc5c0a97c8d391077a4044a41054f598.jpg" class="d-block w-100" alt="slide3">
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!--=======================================================
+        INTRO
+    -->
+    <section class="w-50 mx-auto text-center pt-5" id="Intro">
+        <h1 class="p-3 fs-2 border-top border-3 ">Esto va a ser una prueba sin estilos <span class="text-primary">Eso si va a tener estilos</span></h1>
+        <p class="p-3 fs-4"><span class="text-primary">Igual esto si va a tener estilos </span> Esto probablemente no vaya a tener estilos de ningun tipo</p>
+    </section>
+
+    <!--=======================================================
+       SERVICIOS HECHOS CON COLUMNAS
+    -->
+
+    <section class="container-fluid border-bottom border-3">
+        <div class="row w-50 mx-auto  servicio-fila" >
+            <div class="col-lg-6 col-md-12 col-sm-12 d-flex  my-5 icono-wrap">
+                <img src="https://ih1.redbubble.net/image.3096520922.5613/st,small,507x507-pad,600x600,f8f8f8.u2.jpg" alt="MiataRed" width="100" height="100">
+                <div>
+                    <h3 class="fs-5 mt-4 px-4 pb-1">Esto es la columna 1 de la fila 1</h3>
+                    <p class="px-4">Miata Na 1.6 16V e color rojo </p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 d-flex  my-5 icono-wrap">
+                <img src="https://ih1.redbubble.net/image.1719978876.0906/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="MiataPink" width="100" height="100">
+                <div>
+                    <h3 class="fs-5 mt-4 px-4 pb-1">Esto es la columna 2 de la fila 1</h3>
+                    <p class="px-4">Solo un miata con el ojito medio cerrado</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row w-50 mx-auto  servicio-fila" >
+            <div class="col-lg-6 col-md-12 col-sm-12 d-flex my-5 icono-wrap">
+                <img src="https://ih1.redbubble.net/image.723532016.8293/st,small,507x507-pad,600x600,f8f8f8.u1.jpg" alt="MiataWhite" width="100" height="100">
+                <div>
+                    <h3 class="fs-5 mt-4 px-4 pb-1 ">Esto es la columna 1 de la fila 2</h3>
+                    <p class="px-4 ">Un poco de cultura japonesa lo que iene siendo MazdaSpeed</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 d-flex  my-5 icono-wrap">
+                <img src="https://res.cloudinary.com/teepublic/image/private/s--JR1MiKHV--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1569070996/production/designs/6042455_0.jpg" alt="MiataBlue" width="100" height="100">
+                <div>
+                    <h3 class="fs-5 mt-4 px-4 pb-1">Esto es la columna 2 de la fila 2</h3>
+                    <p class="px-4">Un miata bien azul</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--=======================================================
+       Sobre mi
+    -->
+
+    <section>
+            <div class="container w-50 m-auto text-center d-flex pt-5">
+                <img src="https://preview.redd.it/z3wdizpl92g81.png?auto=webp&s=c05a7afcfdf59b726c2c859616a05390d0dcc221" alt="MiPerfil" width="200" height="200">
+                <div>
+                    <h1 class="mb-5 fs-2 p-5"><span class="text-primary">Mi Nombre es Diego </span>Tengo 23 años y estoy aprendiendo php y bootstrap</h1>
+                 </div>
+            </div>
+        <!-- ESTO ES EL MAPA INTERACTIVO DEL GOOGLE MAPS-->
+
+        <div id="local" class="border-top border-2">
+            <div class="mapa"></div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1971.5219690216366!2d-8.723932849926218!3d42.23698205125842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2f626be22104af%3A0x4ed28aea3ab69b19!2sInnatial%20Developers%2C%20S.L.!5e0!3m2!1ses!2ses!4v1663755996091!5m2!1ses!2ses" width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="wrapper-local">
+                    <h2>Ubicado en Vigo</h2>
+                    <h2 class="text-primary mb-4" id="typewriter"></h2>
+                    <p class="fs-5 text-body">Innatial es una desarrolladora de páginas web situada en principe de vigo
+                        Innatial es una desarrolladora de páginas web situada en principe de vigo
+                        Innatial es una desarrolladora de páginas web situada en principe de vigo
+                        Innatial es una desarrolladora de páginas web situada en principe de vigo
+                        Innatial es una desarrolladora de páginas web situada en principe de vigo</p>
+                    <section class="d-flex justify-content-start" id="numeros_local">
+                        <div>
+                            <p class="text-primary fs-5">248</p>
+                            <p>loquesea</p>
+                        </div>>
+                        <div>
+                            <p class="text-primary fs-5">100%</p>
+                            <p>Aprobado</p>
+                        </div>>
+                        <div>
+                            <p class="text-primary fs-5">24º</p>
+                            <p>Temperatura ? porque yo que se tengo la imaginacion pocha</p>
+                        </div>>
+                    </section>
+                </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO-->
+
+
+
+
+    <script src="/assets/app/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
 {% endblock %}

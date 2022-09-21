@@ -23,13 +23,12 @@
 
 {% block body %}
 
-    {%  set Variabledeprueba = 'Hola esto es una variable de prueba' %}
-    {{ Variabledeprueba }} <br>
-    <h1>El numero aleatorio es: {{ number }}</h1>
+    <h1>Hola formulario</h1>
 
     <ul>
         <li style ="--clr:#00ade1;">
-            <a href="/" data-text="&nbsp;Inicio">&nbsp;Volver al inicio&nbsp;</a>
+            <a href="/" data-text="&nbsp;Inicio">&nbsp;Volver al inicio&nbsp;</a></br>
+            <a href="{{ path("app_conference") }}">Volver al incio pero con path</a>
         </li>
     </ul>
 
